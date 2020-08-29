@@ -15,8 +15,11 @@ func Start() error {
 	// initiate echo server
 	ws.echo = echo.New()
 
-	// add routes to the server
-	ws.addRoutes()
+	// bind middlewares
+	ws.bindMiddlewares()
+
+	// bind routes to the server
+	ws.bindRoutes()
 
 	// start the server
 	err := ws.echo.Start(":1323")
